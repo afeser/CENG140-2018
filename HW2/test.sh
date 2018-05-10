@@ -8,6 +8,8 @@
 
 number_of_tests=100
 
+mkdir data &> /dev/null
+
 if [ -z $1 ]
 then
     echo "Trial numbers are not given, taking default. $number_of_tests"
