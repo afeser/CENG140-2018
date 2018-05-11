@@ -47,7 +47,7 @@ do
         0)
             printf " a" >> $output_file
             ;;
-        1)
+        6)
             printf " b" >> $output_file
             ;;
         2)
@@ -61,7 +61,10 @@ do
             ;;
         5)
             printf " f" >> $output_file
-        
+            ;;
+        1*)
+            printf " deneme$my_rand" >> $output_file # maxUserNameLength test
+            ;;
             # Do nothing for case $number_of_users
             
     esac

@@ -5,6 +5,7 @@
 # Decrease if there are a lot of differences
 # Increase if no difference is found
 # To change test parameters, refer to helper/command_generator.sh
+# Give -1 to number_of_tests to use the same data as before
 
 number_of_tests=100
 
@@ -17,15 +18,18 @@ else
     number_of_tests=$1
 fi
 
-# Clean
-rm data/commands
+if [ $number_of_tests -ne -1 ]
+then
+    # Clean
+    rm data/commands
 
-# Generate commands
-bash helper/command_generator.sh $number_of_tests
-
+    # Generate commands
+    bash helper/command_generator.sh $number_of_tests
+fi
+    
 # Test and compare
-./cb_hazir 20 20 20 < data/commands > data/hazir_output
-./cb 20 20 20 < data/commands > data/yazilmis_output
+./cb_hazir 5 5 5 < data/commands > data/hazir_output
+./cb 5 5 5 < data/commands > data/yazilmis_output
 
 
 
