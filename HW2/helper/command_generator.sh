@@ -6,10 +6,11 @@
 
 output_file="data/commands"
 
-number_of_commands=5 # register, path, etc.
-number_of_users=6 # how many different users will be for the first argument
+number_of_commands=7 # register, path, etc.
+number_of_users=7 # how many different users will be for the first argument
 number_of_users_iki=100 # second argument count, increase to decrease the probability to have a second argument
-    
+number_of_commands_uc=3 # sort icin
+
 sayici=0
 
 while [ $sayici -lt $1 ]
@@ -37,6 +38,36 @@ do
             ;;
         5)
             printf path >> $output_file
+            ;;
+        6)  
+            my_rand=$RANDOM
+            my_rand=$(($my_rand%$number_of_commands_uc))
+            printf sort >> $output_file
+            case $my_rand in
+                0)
+                    printf abc >> $output_file
+                    ;;
+                1)
+                    printf pop >> $output_file
+                    ;;
+                2)
+                    printf baska_birsey >> $output_file
+                    ;;
+            esac
+            my_rand=$RANDOM
+            my_rand=$(($my_rand%$number_of_commands_uc))
+            case $my_rand in
+                0)
+                    printf asc >> $output_file
+                    ;;
+                1)
+                    printf desc >> $output_file
+                    ;;
+                2)
+                    printf baska_birsey >> $output_file
+                    ;;
+            esac
+            ;;
             
     esac
     

@@ -29,7 +29,7 @@ fi
     
 # Test and compare
 ./cb_hazir 5 5 5 < data/commands > data/hazir_output
-./cb 5 5 5 < data/commands > data/yazilmis_output
+timeout 10 ./cb 5 5 5 < data/commands > data/yazilmis_output
 
 
 
